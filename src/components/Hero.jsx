@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { Canvas } from "@react-three/fiber";
 import PlaneAsteroid from "../models/plane-asteroid";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
-const Hero = () => {
+const Hero = memo(() => {
   return (
     <section className="hero overflow-hidden z-0 ">
       <Parallax pages={1.4}>
@@ -77,7 +77,7 @@ const Hero = () => {
       </Parallax>
     </section>
   );
-};
+});
 export default Hero;
 
 // xl:-top-7 lg:-top-36 -top-16
