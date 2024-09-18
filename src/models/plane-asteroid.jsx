@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import planeAsteroid from "../assets/3D/space_exploration_wlp_series_8.glb";
+
+import planeAsteroidUrl from "../assets/3D/space_exploration_wlp_series_8.glb";
 
 const PlaneAsteroid = (props) => {
-  const { nodes, materials } = useGLTF(planeAsteroid);
   const groupRef = useRef();
+
+  // Load the GLB model using useGLTF
+  const { nodes, materials } = useGLTF(planeAsteroidUrl);
 
   useFrame(() => {
     if (groupRef.current) {
@@ -38,5 +41,8 @@ const PlaneAsteroid = (props) => {
     </group>
   );
 };
+
+// Required for GLTFLoader to work properly with React Three Fiber
+useGLTF.preload(planeAsteroidUrl);
 
 export default PlaneAsteroid;
